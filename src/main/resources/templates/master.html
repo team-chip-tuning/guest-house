@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="layout (title, content)" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/offcanvas.css"/>
+    <link rel="stylesheet" href="/css/toastr.min.css"/>
+    <title th:replace="${title}">Placeholder Title</title>
+</head>
+<body th:onload="showToast()">
+<div class="container-fluid bg-light">
+    <div th:insert="fragments/logo"></div>
+    <div th:insert="fragments/navi"></div>
+
+    <main role="main" class="my-3 p-3 bg-white rounded shadow-sm">
+        <div th:replace="${content}">
+            <p>Placeholder Content</p>
+        </div>
+    </main>
+</div>
+<input id="param-toast-title" type="hidden" th:data-toast-title="${toastTitle}">
+<input id="param-toast-content" type="hidden" th:data-toast-content="${toastContent}">
+<input id="param-toast-msg" type="hidden" th:data-toast-msg="${toastMsg}">
+<!--
+https://unpkg.com/browse/jquery@3.4.1/dist/
+https://unpkg.com/browse/bootstrap@4.3.1/dist/
+https://unpkg.com/browse/popper.js@1.15.0/dist/umd/
+-->
+<script src="/js/jquery.slim.min.js"></script>
+<script src="/js/toastr.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

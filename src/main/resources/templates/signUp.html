@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{master :: layout(~{::title}, ~{::section})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{global.signUp}"/>
+</head>
+<body>
+<section>
+    <h3 th:text="#{global.signUp}"/>
+    <form th:action="@{/signUp}" method="post" th:object="${addNewUser}">
+        <div class="form-group">
+            <label>User Name</label>
+            <input type="text" th:field="*{userName}" class="form-control" aria-describedby="userNameHelp"
+                   placeholder="Enter Username">
+            <small for="userNameHelp" th:if="!${#fields.hasErrors('userName')}" class="form-text text-muted">* please
+                enter your user name</small>
+            <small for="userNameHelp" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"
+                   class="form-text text-danger"/>
+
+            <label>Email</label>
+            <input type="text" th:field="*{email}" class="form-control" aria-describedby="emailHelp"
+                   placeholder="Enter Username">
+            <small for="emailHelp" th:if="!${#fields.hasErrors('email')}" class="form-text text-muted">* enter your
+                mail</small>
+            <small for="emailHelp" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                   class="form-text text-danger"/>
+
+            <label>Password</label>
+            <input type="password" th:field="*{password}" class="form-control" aria-describedby="passwordHelp"
+                   placeholder="Enter Password">
+            <small for="passwordHelp" th:if="!${#fields.hasErrors('password')}" class="form-text text-muted">* enter
+                your new password</small>
+            <small for="passwordHelp" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                   class="form-text text-danger"/>
+
+            <label>Confirm Password</label>
+            <input type="password" th:field="*{passwordConfirm}" class="form-control"
+                   aria-describedby="passwordConfirmHelp" placeholder="Confirm Password">
+            <small for="passwordConfirmHelp" th:if="!${#fields.hasErrors('passwordConfirm')}"
+                   class="form-text text-muted">* confirm your password</small>
+            <small for="passwordConfirmHelp" th:if="${#fields.hasErrors('passwordConfirm')}"
+                   th:errors="*{passwordConfirm}" class="form-text text-danger"/>
+        </div>
+        <div th:replace="fragments/saveButtons::formField(paramHref='/signUp')"></div>
+    </form>
+</section>
+</body>
+</html>

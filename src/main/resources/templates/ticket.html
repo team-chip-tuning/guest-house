@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{master :: layout(~{::title}, ~{::section})}">
+<head>
+    <title>Ticket</title>
+</head>
+<body>
+<section>
+    <table>
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">appName</th>
+            <th scope="col">title</th>
+            <th scope="col">description</th>
+            <th scope="col">status</th>
+            <th scope="col">description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ticket : ${tickets}">
+            <td th:text="${ticket.id}"/>
+            <td th:text="${ticket?.application?.appName}"/>
+            <td th:text="${ticket.title}"/>
+            <td th:text="${ticket?.description}"/>
+            <td th:text="${ticket?.status}"/>
+            <td th:text="${ticket?.release?.description}"/>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="8"></td>
+        </tr>
+        </tfoot>
+    </table>
+</section>
+</body>
+</html>

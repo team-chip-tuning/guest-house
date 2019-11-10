@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="global.app-name">Hotel Verwaltung</entry>
+    <entry key="global.dashboard">Überischt</entry>
+    <entry key="global.database">Datenbank</entry>
+    <entry key="global.say-hi">Hallo</entry>
+    <entry key="global.signIn">Anmelden</entry>
+    <entry key="global.signOut">Abmelden</entry>
+    <entry key="global.signUp">Neu Anmelden</entry>
+    <entry key="global.who-are-you">Wer bist du?</entry>
+</properties>
