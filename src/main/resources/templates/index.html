@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{master :: layout(~{::title}, ~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title th:text="${title}"/>
+</head>
+<body>
+<section>
+    <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
+    <div class="media text-muted pt-3">
+        <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg"
+             preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#007bff"></rect>
+            <text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text>
+        </svg>
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">@username</strong>
+            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+            condimentum nibh, ut fermentum massa justo sit amet risus.
+        </p>
+    </div>
+    <div class="media text-muted pt-3">
+        <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg"
+             preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#e83e8c"></rect>
+            <text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text>
+        </svg>
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">@username</strong>
+            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+            condimentum nibh, ut fermentum massa justo sit amet risus.
+        </p>
+    </div>
+    <div class="media text-muted pt-3">
+        <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg"
+             preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#6f42c1"></rect>
+            <text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text>
+        </svg>
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">@username</strong>
+            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+            condimentum nibh, ut fermentum massa justo sit amet risus.
+        </p>
+    </div>
+    <small class="d-block text-right mt-3">
+        <a href="#">All updates</a>
+    </small>
+    <!--<div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h6 class="border-bottom border-gray pb-2 mb-0">Suggestions</h6>
+        <div class="media text-muted pt-3">
+            <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <strong class="text-gray-dark">Full Name</strong>
+                    <a href="#">Follow</a>
+                </div>
+                <span class="d-block">@username</span>
+            </div>
+        </div>
+        <div class="media text-muted pt-3">
+            <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <strong class="text-gray-dark">Full Name</strong>
+                    <a href="#">Follow</a>
+                </div>
+                <span class="d-block">@username</span>
+            </div>
+        </div>
+        <div class="media text-muted pt-3">
+            <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <strong class="text-gray-dark">Full Name</strong>
+                    <a href="#">Follow</a>
+                </div>
+                <span class="d-block">@username</span>
+            </div>
+        </div>
+        <small class="d-block text-right mt-3">
+            <a href="#">All suggestions</a>
+        </small>
+    </div>-->
+
+    <!--<table>
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">firstName</th>
+            <th scope="col">lastName</th>
+            <th scope="col">email</th>
+            <th scope="col">gender</th>
+            <th scope="col">ipAddress</th>
+            <th scope="col">company</th>
+            <th scope="col">createdBy</th>
+            <th scope="col">modifiedBy</th>
+            <th scope="col">version</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="person : ${persons}">
+            <td th:text="${person.id}"/>
+            <td th:text="${person.firstName}"/>
+            <td th:text="${person.lastName}"/>
+            <td th:text="${person.email}"/>
+            <td th:text="${person.gender}"/>
+            <td th:text="${person.ipAddress}"/>
+            <td th:text="${person.company}"/>
+            <td th:text="${person.createdBy}"/>
+            <td th:text="${person.createdDate}"/>
+            <td th:text="${person.lastModifiedBy}"/>
+            <td th:text="${person.lastModifiedDate}"/>
+            <td th:text="${person.rowVersion}"/>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="10"></td>
+        </tr>
+        </tfoot>
+    </table>
+
+    <p><span th:text="${title}"/></p>
+    <p><span th:text="${persons.size}"/></p>
+    <p><span th:text="${persons.pageable}"/></p>
+    <p><span th:text="${persons.pageable.pageNumber}"/></p>
+    <p><span th:text="${persons.totalElements}"/></p>
+    <p><span th:text="${persons.totalPages}"/></p>
+    <p><span th:text="${persons.sort}"/></p>-->
+</section>
+</body>
+</html>

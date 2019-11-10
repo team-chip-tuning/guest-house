@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="Email">* keine gültige E-Mail-Adresse</entry>
+    <entry key="NotBlank">* darf nicht leer sein</entry>
+    <entry key="NotNull">* darf nicht leer sein</entry>
+    <entry key="validation-email-in-use">* für diese E-Mail existiert bereits ein Konto</entry>
+    <entry key="validation-signIn-error">* Ihre Username oder Password ist nicht korrekt</entry>
+    <entry key="validation-signIn-message">* Sie sind Abgemeldet</entry>
+    <entry key="validation-size">* muss zwischen {min} und {max} lang sein</entry>
+</properties>
