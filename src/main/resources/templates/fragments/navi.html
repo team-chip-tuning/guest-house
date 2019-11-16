@@ -1,7 +1,4 @@
-<div class="nav-scroller bg-white rounded shadow-sm"
-     xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
-     xmlns:th="http://www.thymeleaf.org">
-
+<div class="nav-scroller bg-white rounded shadow-sm" xmlns:th="http://www.thymeleaf.org">
     <nav class="nav nav-underline">
         <a class="nav-link active" href="/" th:text="#{global.dashboard}"/>
         <a class="nav-link" href="#">
@@ -9,12 +6,5 @@
             <span class="badge badge-pill bg-light align-text-bottom">27</span>
         </a>
         <a class="nav-link" href="/ticket">Tickets</a>
-        <a class="nav-link" sec:authorize="!isAuthenticated()" href="/signIn" th:text="#{global.signIn}"/>
-        <a class="nav-link" sec:authorize="isAuthenticated() && hasAuthority('ROLE_ADMIN')" href="/h2"
-           th:text="#{global.database}"/>
-        <a class="nav-link" sec:authorize="isAuthenticated() && hasAuthority('ROLE_ADMIN')" href="/signUp"
-           th:text="#{global.signUp}"/>
-        <a class="nav-link" href="#" sec:authorize="isAuthenticated()">Rolen: <span
-                sec:authentication="principal.authorities"></span></a>
     </nav>
 </div>

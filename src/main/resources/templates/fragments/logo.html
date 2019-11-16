@@ -1,23 +1,14 @@
 <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm"
-     xmlns:th="http://www.thymeleaf.org"
-     xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+     xmlns:th="http://www.thymeleaf.org">
     <img class="mr-3" src="/img/bootstrap-outline.svg" alt="" width="48" height="48">
     <div class="lh-100">
         <h6 class="mb-0 text-white lh-100" th:text="#{global.app-name}"/>
-        <small>
-            <div sec:authorize="!isAuthenticated()">
-                <form th:action="@{/login}" method="post">
-                    <span th:text="#{global.who-are-you}"/>
-                    <input th:title="#{global.signIn}" type="submit" class="btn btn-link btn-xs text-white" value=".."/>
-                </form>
-            </div>
-            <div sec:authorize="isAuthenticated()">
-                <form th:action="@{/signOut}" method="post">
-                    <span th:text="#{global.say-hi}"/> <span sec:authentication="name"></span>
-                    <input th:title="#{global.signOut}" type="submit" class="btn btn-link btn-xs text-white"
-                           value=".."/>
-                </form>
-            </div>
-        </small>
+    </div>
+    <div class="form-new-guest-align">
+        <form th:action="@{/guestReservation}" th:object="${guestReservation}" class="form-inline mt-2 mt-md-0"
+              method="post">
+            <input class="form-control mr-sm-2" type="text" name="rfId" placeholder="RFID" aria-label="RFID">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Gast Registrieren</button>
+        </form>
     </div>
 </div>

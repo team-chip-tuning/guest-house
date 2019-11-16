@@ -13,7 +13,7 @@ public interface ReservationService {
     Page<Reservation> findAll(Pageable pageable);
 
     @Transactional
-    Optional<Reservation> findByRfId(Long rfId);
+    Optional<Reservation> findByRfId(String rfId);
 
     @Transactional
     Optional<Reservation> read(Long id);

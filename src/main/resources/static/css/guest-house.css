@@ -1,0 +1,10 @@
+/*
+ guest-house app css
+ */
+.form-new-guest-align {
+    display: inline-flex;
+    justify-content: flex-end;
+    flex-basis: max-content;
+    flex-grow: 1;
+    flex-flow: row wrap;
+}
