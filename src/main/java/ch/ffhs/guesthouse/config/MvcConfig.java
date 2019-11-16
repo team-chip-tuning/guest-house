@@ -8,14 +8,27 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * Configuration for mvc (routes) and bundles (text)
+ */
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
 
+    /**
+     * mvc route configuration
+     *
+     * @param registry
+     */
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/index").setViewName("index");
     }
 
+    /**
+     * Bean configuration for validation bundle
+     *
+     * @return MessageSource
+     */
     @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource
@@ -26,6 +39,10 @@ public class MvcConfig implements WebMvcConfigurer {
         return messageSource;
     }
 
+    /**
+     *  Bean configuration to add the validation bundle
+     * @return LocalValidatorFactoryBean
+     */
     @Bean
     public LocalValidatorFactoryBean getValidator() {
         LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
