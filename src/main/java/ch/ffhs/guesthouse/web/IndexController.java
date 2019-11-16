@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class IndexController {
@@ -18,16 +19,16 @@ public class IndexController {
     }
 
     @GetMapping("")
-    public String index(Model model) {
+    public ModelAndView index(Model model) {
         model.addAttribute("title", "Kata Backend");
         model.addAttribute("persons", 42);
-        return "index";
+        return new ModelAndView("index");
     }
 
-    @PostMapping("/guestReservation")
-    public String guestReservation(@ModelAttribute("guestReservation") Reservation reservation, Model model) {
+    @PostMapping("/addReservation")
+    public ModelAndView addReservation(@ModelAttribute("addReservation") Reservation reservation, Model model) {
         if (reservation.getRfId().isEmpty()) {
-            return "index";
+            return new ModelAndView("redirect:/");
         }
         var oldReservation = reservationService.findByRfId(reservation.getRfId());
         if (oldReservation.isPresent()) {
@@ -35,6 +36,6 @@ public class IndexController {
         } else {
             model.addAttribute("reservation", new Reservation());
         }
-        return "index";
+        return new ModelAndView("addReservation");
     }
 }
