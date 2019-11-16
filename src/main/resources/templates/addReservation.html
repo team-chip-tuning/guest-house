@@ -5,24 +5,65 @@
 </head>
 <body>
 <section>
-    <h3 th:text="#{global.signIn}"/><small th:if="${param.logout}" th:text="*{message}" class="text-info"/>
-    <div th:text="${reservation.rfId}"/>
-    <form th:action="@{/signIn}" method="post">
+    <h3 th:text="${'Add Reservation'}"/><small th:if="${param.logout}" th:text="*{message}" class="text-info"/>
+    <form th:action="@{/insertReservation}" method="post">
         <div class="form-group">
-            <label>User Name</label>
-            <input type="text" class="form-control" name="username" aria-describedby="userNameHelp"
-                   placeholder="Enter Username">
-            <small for="userNameHelp" th:if="!${param.error}" class="form-text text-muted">* please enter your user
-                name</small>
-            <small for="userNameHelp" th:if="${param.error}" th:text="*{error}" class="form-text text-danger"/>
+            <label>RFID</label>
+            <input type="text"
+                   class="form-control"
+                   th:field="${reservation.rfId}"
+                   aria-describedby="rfidHelp"
+                   placeholder="Enter RFID"/>
 
-            <label>Password</label>
-            <input type="password" name="password" class="form-control" aria-describedby="passwordHelp"
-                   placeholder="Enter Password">
-            <small for="passwordHelp" th:if="!${param.error}" class="form-text text-muted">* enter your password</small>
-            <small for="passwordHelp" th:if="${param.error}" th:text="*{error}" class="form-text text-danger"/>
+            <label>Name</label>
+            <input type="text"
+                   class="form-control"
+                   th:field="${reservation.name}"
+                   minlength="2"
+                   maxlength="128"
+                   required
+                   aria-describedby="nameHelp"
+                   placeholder="Enter Name"/>
+
+            <label>medicalCare</label>
+            <textarea type="text"
+                      class="form-control"
+                      th:field="${reservation.medicalCare}"
+                      maxlength="512"
+                      aria-describedby="medicalCareHelp"
+                      placeholder="Enter medicalCare"/>
+
+            <label>medicalCare</label>
+            <textarea type="text"
+                      class="form-control"
+                      th:field="${reservation.specialFeeding}"
+                      maxlength="512"
+                      aria-describedby="specialFeedingHelp"
+                      placeholder="Enter specialFeeding"/>
+
+            <label>medicalCare</label>
+            <textarea type="text"
+                      class="form-control"
+                      th:field="${reservation.commands}"
+                      maxlength="512"
+                      aria-describedby="commandsHelp"
+                      placeholder="Enter commands"/>
+            <label>pickUpDate</label>
+            <input type="text"
+                   class="form-control"
+                   th:field="${reservation.pickUpDate}"
+                   aria-describedby="pickUpDateHelp"
+                   placeholder="Enter pickUpDate"/>
+            <label>pickUpInformation</label>
+            <textarea type="text"
+                      class="form-control"
+                      th:field="${reservation.commands}"
+                      maxlength="512"
+                      aria-describedby="pickUpInformationHelp"
+                      placeholder="Enter pickUpInformation"/>
+
         </div>
-        <div th:replace="fragments/saveButtons::formField(paramHref='/signIn')"></div>
+        <div th:replace="fragments/saveButtons::formField(paramHref='/addReservation')"></div>
     </form>
 </section>
 </body>

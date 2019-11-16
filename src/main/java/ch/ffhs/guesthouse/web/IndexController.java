@@ -34,7 +34,7 @@ public class IndexController {
         if (oldReservation.isPresent()) {
             model.addAttribute("reservation", oldReservation.get());
         } else {
-            model.addAttribute("reservation", new Reservation());
+            model.addAttribute("reservation", reservation);
         }
         return new ModelAndView("addReservation");
     }
