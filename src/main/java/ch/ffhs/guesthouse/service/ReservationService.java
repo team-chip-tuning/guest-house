@@ -1,22 +1,26 @@
 package ch.ffhs.guesthouse.service;
 
 import ch.ffhs.guesthouse.entity.Reservation;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
+/**
+ * Interface ReservationService
+ *
+ * @author dani
+ */
 public interface ReservationService {
 
     @Transactional
-    Page<Reservation> findAll(Pageable pageable);
+    List<Reservation> findAll();
 
     @Transactional
     Optional<Reservation> findByRfId(String rfId);
 
     @Transactional
-    Optional<Reservation> read(Long id);
+    Optional<Reservation> readById(Long id);
 
     @Transactional
     void insert(Reservation reservation);
@@ -25,5 +29,5 @@ public interface ReservationService {
     void deleteById(Long id);
 
     @Transactional
-    Optional<Reservation> update(Reservation reservation);
+    void update(Reservation reservation);
 }

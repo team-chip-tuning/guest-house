@@ -5,23 +5,10 @@
 </head>
 <body>
 <section>
-    <h3 th:text="#{global.signIn}"/><small th:if="${param.logout}" th:text="*{message}" class="text-info"/>
-    <form th:action="@{/signIn}" method="post">
-        <div class="form-group">
-            <label>User Name</label>
-            <input type="text" class="form-control" name="username" aria-describedby="userNameHelp"
-                   placeholder="Enter Username">
-            <small for="userNameHelp" th:if="!${param.error}" class="form-text text-muted">* please enter your user
-                name</small>
-            <small for="userNameHelp" th:if="${param.error}" th:text="*{error}" class="form-text text-danger"/>
-
-            <label>Password</label>
-            <input type="password" name="password" class="form-control" aria-describedby="passwordHelp"
-                   placeholder="Enter Password">
-            <small for="passwordHelp" th:if="!${param.error}" class="form-text text-muted">* enter your password</small>
-            <small for="passwordHelp" th:if="${param.error}" th:text="*{error}" class="form-text text-danger"/>
-        </div>
-        <div th:replace="fragments/saveButtons::formField(paramHref='/signIn')"></div>
+    <h3 th:text="${'Update Reservation'}"/><small class="text-info" th:if="${param.logout}" th:text="*{message}"/>
+    <form method="post" th:action="@{/insertReservation}" th:object="${reservation}">
+        <div th:replace="fragments/reservationForm::formField(disabled='false')"/>
+        <div th:replace="fragments/saveButtons"></div>
     </form>
 </section>
 </body>
