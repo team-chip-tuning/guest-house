@@ -5,65 +5,101 @@
 </head>
 <body>
 <section>
-    <h3 th:text="${'Add Reservation'}"/><small th:if="${param.logout}" th:text="*{message}" class="text-info"/>
-    <form th:action="@{/insertReservation}" method="post">
+    <h3 th:text="${'Add Reservation'}"/><small class="text-info" th:if="${param.logout}" th:text="*{message}"/>
+    <form method="post" th:action="@{/insertReservation}" th:object="${reservation}">
         <div class="form-group">
             <label>RFID</label>
-            <input type="text"
+            <input aria-describedby="rfidHelp"
                    class="form-control"
-                   th:field="${reservation.rfId}"
-                   aria-describedby="rfidHelp"
-                   placeholder="Enter RFID"/>
+                   placeholder="Enter RFID"
+                   required
+                   th:field="*{rfId}"
+                   type="text"/>
+            <small class="form-text text-danger" for="rfidHelp"
+                   th:errors="*{rfId}"
+                   th:if="${#fields.hasErrors('rfId')}"/>
 
             <label>Name</label>
-            <input type="text"
+            <input aria-describedby="nameHelp"
                    class="form-control"
-                   th:field="${reservation.name}"
-                   minlength="2"
                    maxlength="128"
+                   minlength="2"
+                   placeholder="Enter Name"
                    required
-                   aria-describedby="nameHelp"
-                   placeholder="Enter Name"/>
+                   th:field="*{name}"
+                   type="text"/>
+            <small class="form-text text-danger" for="nameHelp"
+                   th:errors="*{name}"
+                   th:if="${#fields.hasErrors('name')}"/>
 
             <label>medicalCare</label>
-            <textarea type="text"
+            <textarea aria-describedby="medicalCareHelp"
                       class="form-control"
-                      th:field="${reservation.medicalCare}"
                       maxlength="512"
-                      aria-describedby="medicalCareHelp"
-                      placeholder="Enter medicalCare"/>
+                      placeholder="Enter medicalCare"
+                      th:field="*{medicalCare}"
+                      type="text"/>
+            <small class="form-text text-danger" for="medicalCareHelp"
+                   th:errors="*{medicalCare}"
+                   th:if="${#fields.hasErrors('medicalCare')}"/>
 
-            <label>medicalCare</label>
-            <textarea type="text"
+            <label>specialFeeding</label>
+            <textarea aria-describedby="specialFeedingHelp"
                       class="form-control"
-                      th:field="${reservation.specialFeeding}"
                       maxlength="512"
-                      aria-describedby="specialFeedingHelp"
-                      placeholder="Enter specialFeeding"/>
+                      placeholder="Enter specialFeeding"
+                      th:field="*{specialFeeding}"
+                      type="text"/>
+            <small class="form-text text-danger" for="specialFeedingHelp"
+                   th:errors="*{specialFeeding}"
+                   th:if="${#fields.hasErrors('specialFeeding')}"/>
 
-            <label>medicalCare</label>
-            <textarea type="text"
+            <label>commands</label>
+            <textarea aria-describedby="commandsHelp"
                       class="form-control"
-                      th:field="${reservation.commands}"
                       maxlength="512"
-                      aria-describedby="commandsHelp"
-                      placeholder="Enter commands"/>
+                      placeholder="Enter commands"
+                      th:field="*{commands}"
+                      type="text"/>
+            <small class="form-text text-danger" for="commandsHelp"
+                   th:errors="*{commands}"
+                   th:if="${#fields.hasErrors('commands')}"/>
+
+            <label>ownerInformation</label>
+            <textarea aria-describedby="ownerInformationHelp"
+                      class="form-control"
+                      maxlength="512"
+                      placeholder="Enter ownerInformation"
+                      required
+                      th:field="*{ownerInformation}"
+                      type="text"/>
+            <small class="form-text text-danger" for="ownerInformationHelp"
+                   th:errors="*{ownerInformation}"
+                   th:if="${#fields.hasErrors('ownerInformation')}"/>
+
             <label>pickUpDate</label>
-            <input type="text"
+            <input aria-describedby="pickUpDateHelp"
                    class="form-control"
-                   th:field="${reservation.pickUpDate}"
-                   aria-describedby="pickUpDateHelp"
-                   placeholder="Enter pickUpDate"/>
-            <label>pickUpInformation</label>
-            <textarea type="text"
-                      class="form-control"
-                      th:field="${reservation.commands}"
-                      maxlength="512"
-                      aria-describedby="pickUpInformationHelp"
-                      placeholder="Enter pickUpInformation"/>
+                   placeholder="Enter pickUpDate"
+                   required
+                   th:field="*{pickUpDate}"
+                   type="date"/>
+            <small class="form-text text-danger" for="pickUpDateHelp"
+                   th:errors="*{pickUpDate}"
+                   th:if="${#fields.hasErrors('pickUpDate')}"/>
 
+            <label>pickUpInformation</label>
+            <textarea aria-describedby="pickUpInformationHelp"
+                      class="form-control"
+                      maxlength="512"
+                      placeholder="Enter pickUpInformation"
+                      th:field="*{pickUpInformation}"
+                      type="text"/>
+            <small class="form-text text-danger" for="pickUpInformationHelp"
+                   th:errors="*{pickUpInformation}"
+                   th:if="${#fields.hasErrors('pickUpInformation')}"/>
         </div>
-        <div th:replace="fragments/saveButtons::formField(paramHref='/addReservation')"></div>
+        <div th:replace="fragments/saveButtons"></div>
     </form>
 </section>
 </body>

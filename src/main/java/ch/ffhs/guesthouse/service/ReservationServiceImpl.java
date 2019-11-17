@@ -1,6 +1,7 @@
 package ch.ffhs.guesthouse.service;
 
 import ch.ffhs.guesthouse.entity.Reservation;
+import ch.ffhs.guesthouse.repository.ReservationRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,13 @@ import java.util.Optional;
 
 @Service
 public class ReservationServiceImpl implements ReservationService {
+
+    private final ReservationRepository reservationRepository;
+
+    public ReservationServiceImpl(ReservationRepository reservationRepository) {
+        this.reservationRepository = reservationRepository;
+    }
+
     @Override
     public Page<Reservation> findAll(Pageable pageable) {
         return null;
@@ -26,7 +34,7 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public void insert(Reservation reservation) {
-
+        reservationRepository.save(reservation);
     }
 
     @Override

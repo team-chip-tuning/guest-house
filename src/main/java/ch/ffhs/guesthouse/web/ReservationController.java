@@ -4,11 +4,14 @@ import ch.ffhs.guesthouse.entity.Reservation;
 import ch.ffhs.guesthouse.service.ReservationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.validation.Valid;
 
 @Controller
 public class ReservationController {
@@ -31,11 +34,12 @@ public class ReservationController {
 
 
     @PostMapping("/insertReservation")
-    public ModelAndView addReservation(@ModelAttribute("addReservation") Reservation reservation, Model model) {
-        model.addAttribute("title", "Kata Backend");
-        model.addAttribute("persons", 42);
+    public ModelAndView addReservation(@Valid Reservation reservation, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return new ModelAndView("addReservation");
+        }
         reservationService.insert(reservation);
-        return new ModelAndView("addReservation");
+        return new ModelAndView("redirect:/");
     }
 
     @PostMapping("/updateReservation")

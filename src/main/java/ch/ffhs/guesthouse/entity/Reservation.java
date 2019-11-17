@@ -5,7 +5,6 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
 
 @Data
 @Entity
@@ -15,6 +14,7 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     private String rfId;
 
     @NotBlank
@@ -31,7 +31,12 @@ public class Reservation {
     private String commands;
 
     @NotBlank
-    private LocalDate pickUpDate;
+    @Column(length = 512)
+    private String ownerInformation;
+
+    @NotBlank
+    @NotBlank
+    private String pickUpDate;
 
     @Column(length = 512)
     private String pickUpInformation;
