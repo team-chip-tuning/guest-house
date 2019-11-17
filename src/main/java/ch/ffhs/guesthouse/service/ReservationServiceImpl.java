@@ -2,10 +2,9 @@ package ch.ffhs.guesthouse.service;
 
 import ch.ffhs.guesthouse.entity.Reservation;
 import ch.ffhs.guesthouse.repository.ReservationRepository;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,8 +17,8 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public Page<Reservation> findAll(Pageable pageable) {
-        return null;
+    public List<Reservation> findAll() {
+        return reservationRepository.findAll();
     }
 
     @Override
@@ -28,8 +27,8 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public Optional<Reservation> read(Long id) {
-        return Optional.empty();
+    public Optional<Reservation> readById(Long id) {
+        return reservationRepository.findById(id);
     }
 
     @Override
@@ -39,11 +38,11 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public void deleteById(Long id) {
-
+        reservationRepository.deleteById(id);
     }
 
     @Override
-    public Optional<Reservation> update(Reservation reservation) {
-        return Optional.empty();
+    public void update(Reservation reservation) {
+        reservationRepository.save(reservation);
     }
 }

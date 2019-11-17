@@ -20,8 +20,7 @@ public class IndexController {
 
     @GetMapping("")
     public ModelAndView index(Model model) {
-        model.addAttribute("title", "Kata Backend");
-        model.addAttribute("persons", 42);
+        model.addAttribute("reservationList", reservationService.findAll());
         return new ModelAndView("index");
     }
 

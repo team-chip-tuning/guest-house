@@ -5,23 +5,20 @@
 </head>
 <body>
 <section>
-    <h3 th:text="#{global.signIn}"/><small th:if="${param.logout}" th:text="*{message}" class="text-info"/>
-    <form th:action="@{/signIn}" method="post">
-        <div class="form-group">
-            <label>User Name</label>
-            <input type="text" class="form-control" name="username" aria-describedby="userNameHelp"
-                   placeholder="Enter Username">
-            <small for="userNameHelp" th:if="!${param.error}" class="form-text text-muted">* please enter your user
-                name</small>
-            <small for="userNameHelp" th:if="${param.error}" th:text="*{error}" class="form-text text-danger"/>
+    <h3 th:text="${'Löschen Reservation'}"/><small class="text-info" th:if="${param.logout}" th:text="*{message}"/>
 
-            <label>Password</label>
-            <input type="password" name="password" class="form-control" aria-describedby="passwordHelp"
-                   placeholder="Enter Password">
-            <small for="passwordHelp" th:if="!${param.error}" class="form-text text-muted">* enter your password</small>
-            <small for="passwordHelp" th:if="${param.error}" th:text="*{error}" class="form-text text-danger"/>
+    <form method="post" th:action="@{/removeReservation}" th:object="${reservation}">
+        <div>
+            <p class="text-danger">Möchtest du den Gast:
+                <stron class="font-weight-bold" th:text="${reservation.name}"/>
+                wirklich löschen?
+            </p>
         </div>
-        <div th:replace="fragments/saveButtons::formField(paramHref='/signIn')"></div>
+        <input th:field="*{id}" type="hidden">
+        <div>
+            <a class="btn btn-light" href="/">Abbrechen</a>
+            <input class="btn btn-danger" type="submit" value="Löschen"/>
+        </div>
     </form>
 </section>
 </body>

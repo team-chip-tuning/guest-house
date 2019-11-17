@@ -1,0 +1,102 @@
+<div class="form-group" th:fragment="formField(disabled)" xmlns:th="http://www.thymeleaf.org">
+    <label>RFID</label>
+    <input aria-describedby="rfidHelp"
+           class="form-control"
+           placeholder="Enter RFID"
+           required
+           th:disabled="${disabled}"
+           th:field="*{rfId}"
+           type="text"/>
+    <small class="form-text text-danger" for="rfidHelp"
+           th:errors="*{rfId}"
+           th:if="${#fields.hasErrors('rfId')}"/>
+    <label>Name</label>
+    <input aria-describedby="nameHelp"
+           class="form-control"
+           maxlength="128"
+           minlength="2"
+           placeholder="Enter Name"
+           required
+           th:disabled="${disabled}"
+           th:field="*{name}"
+           type="text"/>
+    <small class="form-text text-danger" for="nameHelp"
+           th:errors="*{name}"
+           th:if="${#fields.hasErrors('name')}"/>
+
+    <label>medicalCare</label>
+    <textarea aria-describedby="medicalCareHelp"
+              class="form-control"
+              maxlength="512"
+              placeholder="Enter medicalCare"
+              th:disabled="${disabled}"
+              th:field="*{medicalCare}"
+              type="text"/>
+    <small class="form-text text-danger" for="medicalCareHelp"
+           th:errors="*{medicalCare}"
+           th:if="${#fields.hasErrors('medicalCare')}"/>
+
+    <label>specialFeeding</label>
+    <textarea aria-describedby="specialFeedingHelp"
+              class="form-control"
+              maxlength="512"
+              placeholder="Enter specialFeeding"
+              th:disabled="${disabled}"
+              th:field="*{specialFeeding}"
+              type="text"/>
+    <small class="form-text text-danger" for="specialFeedingHelp"
+           th:errors="*{specialFeeding}"
+           th:if="${#fields.hasErrors('specialFeeding')}"/>
+
+    <label>commands</label>
+    <textarea aria-describedby="commandsHelp"
+              class="form-control"
+              maxlength="512"
+              placeholder="Enter commands"
+              th:disabled="${disabled}"
+              th:field="*{commands}"
+              type="text"/>
+    <small class="form-text text-danger" for="commandsHelp"
+           th:errors="*{commands}"
+           th:if="${#fields.hasErrors('commands')}"/>
+
+    <label>ownerInformation</label>
+    <textarea aria-describedby="ownerInformationHelp"
+              class="form-control"
+              maxlength="512"
+              placeholder="Enter ownerInformation"
+              required
+              th:disabled="${disabled}"
+              th:field="*{ownerInformation}"
+              type="text"/>
+    <small class="form-text text-danger" for="ownerInformationHelp"
+           th:errors="*{ownerInformation}"
+           th:if="${#fields.hasErrors('ownerInformation')}"/>
+
+    <label>pickUpDate</label>
+    <input aria-describedby="pickUpDateHelp"
+           class="form-control"
+           placeholder="Enter pickUpDate"
+           required
+           th:disabled="${disabled}"
+           th:field="*{pickUpDate}"
+           type="date"/>
+    <small class="form-text text-danger" for="pickUpDateHelp"
+           th:errors="*{pickUpDate}"
+           th:if="${#fields.hasErrors('pickUpDate')}"/>
+
+    <label>pickUpInformation</label>
+    <textarea aria-describedby="pickUpInformationHelp"
+              class="form-control"
+              maxlength="512"
+              placeholder="Enter pickUpInformation"
+              th:disabled="${disabled}"
+              th:field="*{pickUpInformation}"
+              type="text"/>
+    <small class="form-text text-danger" for="pickUpInformationHelp"
+           th:errors="*{pickUpInformation}"
+           th:if="${#fields.hasErrors('pickUpInformation')}"/>
+
+    <input th:field="*{id}" type="hidden">
+</div>
+
