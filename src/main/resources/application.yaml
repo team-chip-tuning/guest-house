@@ -7,3 +7,5 @@ server:
       cookie:
         max-age: 20m
       timeout: 20m
+logging:
+  level.root: info
