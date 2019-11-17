@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" th:replace="~{master :: layout(~{::title}, ~{::section})}" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" th:replace="~{master :: layout(~{::title}, ~{::section}, ~{::breadcrumb})}"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="#{global.signIn}"/>
 </head>
 <body>
+<nav class="nav nav-underline" th:fragment="breadcrumb">
+    <a class="nav-link active" href="/" th:text="#{global.dashboard}"/>
+    <a class="nav-link active" th:href="@{/readReservation/}+${reservation.id}" th:text="${'Detail Ansicht'}"/>
+    <span class="nav-link disabled">Editieren der Gast Informationen</span>
+</nav>
 <section>
     <h3 th:text="${'Update Reservation'}"/><small class="text-info" th:if="${param.logout}" th:text="*{message}"/>
     <form method="post" th:action="@{/insertReservation}" th:object="${reservation}">
         <div th:replace="fragments/reservationForm::formField(disabled='false')"/>
-        <div th:replace="fragments/saveButtons"></div>
+        <div th:replace="fragments/abortButton"></div>
+        <div th:replace="fragments/resetButton"></div>
+        <div th:replace="fragments/saveButton"></div>
     </form>
 </section>
 </body>

@@ -1,28 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" th:fragment="layout (title, content)" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" th:fragment="layout (title, content, breadcrumb)" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/css/offcanvas.css"/>
-    <link rel="stylesheet" href="/css/toastr.min.css"/>
-    <link rel="stylesheet" href="/css/guest-house.css"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/offcanvas.css" rel="stylesheet"/>
+    <link href="/css/toastr.min.css" rel="stylesheet"/>
+    <link href="/css/guest-house.css" rel="stylesheet"/>
     <title th:replace="${title}">Placeholder Title</title>
 </head>
 <body th:onload="showToast()">
 <div class="container-fluid bg-light">
-    <div th:insert="fragments/logo"></div>
-    <div th:insert="fragments/navi"></div>
-
-    <main role="main" class="my-3 p-3 bg-white rounded shadow-sm">
-        <div th:replace="${content}">
-            <p>Placeholder Content</p>
-        </div>
+    <div th:insert="fragments/header"></div>
+    <div class="nav-scroller bg-white rounded shadow-sm">
+        <div th:replace="${breadcrumb}"/>
+    </div>
+    <main class="my-3 p-3 bg-white rounded shadow-sm" role="main">
+        <div th:replace="${content}"/>
     </main>
 </div>
-<input id="param-toast-title" type="hidden" th:data-toast-title="${toastTitle}">
-<input id="param-toast-content" type="hidden" th:data-toast-content="${toastContent}">
-<input id="param-toast-msg" type="hidden" th:data-toast-msg="${toastMsg}">
+<input id="param-toast-title" th:data-toast-title="${toastTitle}" type="hidden">
+<input id="param-toast-content" th:data-toast-content="${toastContent}" type="hidden">
+<input id="param-toast-msg" th:data-toast-msg="${toastMsg}" type="hidden">
 <script src="/js/jquery.slim.min.js"></script>
 <script src="/js/toastr.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>

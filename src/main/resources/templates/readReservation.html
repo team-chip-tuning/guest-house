@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html lang="en" th:replace="~{master :: layout(~{::title}, ~{::section})}" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      th:replace="~{master :: layout(~{::title}, ~{::section}, ~{::breadcrumb})}"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="#{global.signIn}"/>
 </head>
 <body>
+<nav class="nav nav-underline" th:fragment="breadcrumb">
+    <a class="nav-link active" href="/" th:text="#{global.dashboard}"/>
+    <span class="nav-link disabled">Detail Ansicht</span>
+</nav>
 <section>
     <h3 th:text="${'Detail Reservation'}"/><small class="text-info" th:if="${param.logout}" th:text="*{message}"/>
     <form method="post" th:action="@{/insertReservation}" th:object="${reservation}">
         <div th:replace="fragments/reservationForm::formField(disabled='true')"/>
         <div>
-            <a class="btn btn-primary" href="/">Zurück</a>
-            <a class="btn btn-info" th:href="@{/updateReservation/}+*{id}">Bearbeiten</a>
+            <a th:replace="fragments/backButton"/>
+            <a class="btn btn-outline-dark" th:href="@{/updateReservation/}+*{id}">Bearbeiten</a>
             <a class="btn btn-danger" th:href="@{/removeReservation/}+*{id}">Löschen</a>
         </div>
     </form>

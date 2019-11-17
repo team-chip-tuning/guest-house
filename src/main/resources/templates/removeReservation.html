@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" th:replace="~{master :: layout(~{::title}, ~{::section})}" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" th:replace="~{master :: layout(~{::title}, ~{::section}, ~{::breadcrumb})}"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="#{global.signIn}"/>
 </head>
 <body>
+<nav class="nav nav-underline" th:fragment="breadcrumb">
+    <a class="nav-link active" href="/" th:text="#{global.dashboard}"/>
+    <a class="nav-link active" th:href="@{/readReservation/}+${reservation.id}" th:text="${'Detail Ansicht'}"/>
+    <span class="nav-link disabled">Gast Löschen</span>
+</nav>
 <section>
-    <h3 th:text="${'Löschen Reservation'}"/><small class="text-info" th:if="${param.logout}" th:text="*{message}"/>
+    <h3 th:text="${'Löschen des Gastes'}"/><small class="text-info" th:if="${param.logout}" th:text="*{message}"/>
 
     <form method="post" th:action="@{/removeReservation}" th:object="${reservation}">
         <div>
@@ -16,7 +22,7 @@
         </div>
         <input th:field="*{id}" type="hidden">
         <div>
-            <a class="btn btn-light" href="/">Abbrechen</a>
+            <a th:replace="fragments/backButton"/>
             <input class="btn btn-danger" type="submit" value="Löschen"/>
         </div>
     </form>
