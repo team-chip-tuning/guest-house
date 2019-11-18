@@ -33,8 +33,9 @@
     <div class="form-new-guest-align">
         <form class="form-inline mt-2 mt-md-0" method="post" th:action="@{/addReservation}"
               th:object="${addReservation}">
-            <input aria-label="RFID" class="form-control mr-sm-2" name="rfId" placeholder="RFID" type="text">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Gast Registrieren</button>
+            <input aria-label="RFID" class="form-control mr-sm-2" name="rfId" th:placeholder="#{global.rfid}"
+                   type="text">
+            <button class="btn btn-outline-light my-2 my-sm-0" th:text="#{global.registration}" type="submit"/>
         </form>
     </div>
 </div>

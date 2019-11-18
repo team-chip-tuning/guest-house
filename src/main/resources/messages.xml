@@ -2,6 +2,13 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
     <entry key="global.app-name">Hotel Verwaltung</entry>
+    <entry key="gloabl.newGuest">Neuen Gast erstellen</entry>
+    <entry key="global.registration">Gast Registrieren</entry>
+    <entry key="global.rfid">RFID</entry>
+    <entry key="global.abort">Abbrechen</entry>
+    <entry key="global.back">Zurück</entry>
+    <entry key="global.save">Speichern</entry>
+    <entry key="global.rest">Information zurücksetzen</entry>
     <entry key="global.dashboard">Überischt</entry>
     <entry key="global.database">Datenbank</entry>
     <entry key="global.say-hi">Hallo</entry>
