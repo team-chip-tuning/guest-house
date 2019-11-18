@@ -1,5 +1,29 @@
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2019
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
 <!DOCTYPE html>
-<html lang="en" th:replace="~{master :: layout(~{::title}, ~{::section}, ~{::breadcrumb})}"
+<html th:replace="~{master :: layout(~{::title}, ~{::section}, ~{::breadcrumb})}"
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -13,20 +37,34 @@
 <section>
     <h6 class="border-bottom border-gray pb-2 mb-0">Gäste</h6>
     <div class="media text-muted pt-3" th:each="reservation :${reservationList}">
-        <svg aria-label="Placeholder: 32x32" class="bd-placeholder-img mr-2 rounded" focusable="false" height="32"
-             preserveAspectRatio="xMidYMid slice" role="img" width="32" xmlns="http://www.w3.org/2000/svg">
-            <title>Placeholder</title>
-            <rect fill="#007bff" height="100%" width="100%"></rect>
-            <text dy=".3em" fill="#007bff" x="50%" y="50%">32x32</text>
-        </svg>
+
+        <div th:if="not
+        ${reservation.name.contains('weib')} and not
+        ${reservation.name.contains(', w')} and not
+        ${reservation.name.contains('männ')} and not
+        ${reservation.name.contains(', m')} and not
+        ${reservation.name.contains(', mae')}">
+            <img alt="" class="mr-3" height="32" src="/img/dog.svg" width="32">
+        </div>
+
+        <div th:if="${reservation.name.contains('weibl')} or
+        ${reservation.name.contains(', w')}">
+            <img alt="" class="mr-3" height="32" src="/img/dog-girl.svg" width="32">
+        </div>
+
+        <div th:if="${reservation.name.contains('männ')} or
+        ${reservation.name.contains(', m')} or
+        ${reservation.name.contains(', mae')}">
+            <img alt="" class="mr-3" height="32" src="/img/dog-boy.svg" width="32">
+        </div>
+
         <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-            <strong class="d-block text-gray-dark" th:text="${reservation.name}"/>
-            RFID: <span th:text="${reservation.rfId}"/>,
-            Medizinisch Informationen: <span th:text="${reservation.medicalCare}"/>,
-            Wichtige Kommandos: <span th:text="${reservation.commands}"/>,
-            Besitzer Informationen: <span th:text="${reservation.ownerInformation}"/>,
-            Abholdatum: <span th:text="${reservation.pickUpDate}"/>,
-            <a th:href="@{/readReservation/}+${reservation.id}">detail</a>
+            <strong class="d-block text-gray-dark" th:text="${reservation.name}"/> <br>&nbsp;<br>
+            Abholdatum: <span th:text="${reservation.pickUpDate}"/> RFID: <span th:text="${reservation.rfId}"/><br>
+            Medizinisch Informationen: <span th:text="${reservation.medicalCare}"/><br>
+            Wichtige Kommandos: <span th:text="${reservation.commands}"/><br>
+            Besitzer Informationen: <span th:text="${reservation.ownerInformation}"/><br>&nbsp;<br>
+            <a th:href="@{/readReservation/}+${reservation.id}">Detail Ansicht</a>
         </p>
     </div>
     <small class="d-block text-right mt-3">
