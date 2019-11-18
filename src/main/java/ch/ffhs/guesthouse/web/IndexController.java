@@ -29,9 +29,10 @@ import ch.ffhs.guesthouse.service.ReservationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import static ch.ffhs.guesthouse.util.ConstUtil.*;
 
 /**
  * IndexController, this is the start controller for the app
@@ -53,10 +54,10 @@ public class IndexController {
      * @param model
      * @return ModelAndView
      */
-    @GetMapping("")
+    @GetMapping(ROUTE_INDEX)
     public ModelAndView index(Model model) {
-        model.addAttribute("reservationList", reservationService.findAll());
-        return new ModelAndView("index");
+        model.addAttribute(ATTRIBUTE_RESERVATION_LIST, reservationService.findAll());
+        return new ModelAndView(VIEW_INDEX);
     }
 
     /**
@@ -66,17 +67,17 @@ public class IndexController {
      * @param model
      * @return ModelAndView
      */
-    @PostMapping("/addReservation")
-    public ModelAndView addReservation(@ModelAttribute("addReservation") Reservation reservation, Model model) {
+    @PostMapping(ROUTE_ADD_RESERVATION)
+    public ModelAndView addReservation(Reservation reservation, Model model) {
         if (reservation.getRfId().isEmpty()) {
-            return new ModelAndView("redirect:/");
+            return new ModelAndView(REDIRECT_INDEX);
         }
         var oldReservation = reservationService.findByRfId(reservation.getRfId());
         if (oldReservation.isPresent()) {
-            model.addAttribute("reservation", oldReservation.get());
+            model.addAttribute(ATTRIBUTE_RESERVATION, oldReservation.get());
         } else {
-            model.addAttribute("reservation", reservation);
+            model.addAttribute(ATTRIBUTE_RESERVATION, reservation);
         }
-        return new ModelAndView("addReservation");
+        return new ModelAndView(VIEW_ADD_RESERVATION);
     }
 }

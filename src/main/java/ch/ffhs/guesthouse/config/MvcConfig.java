@@ -32,6 +32,8 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import static ch.ffhs.guesthouse.util.ConstUtil.*;
+
 /**
  * Configuration for mvc (routes) and bundles (text)
  *
@@ -46,8 +48,8 @@ public class MvcConfig implements WebMvcConfigurer {
      * @param registry
      */
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("index");
-        registry.addViewController("/index").setViewName("index");
+        registry.addViewController(CONFIG_ROUTE).setViewName(CONFIG_INDEX);
+        registry.addViewController(CONFIG_ROUTE_INDEX).setViewName(CONFIG_INDEX);
     }
 
     /**
@@ -60,7 +62,7 @@ public class MvcConfig implements WebMvcConfigurer {
         ReloadableResourceBundleMessageSource messageSource
                 = new ReloadableResourceBundleMessageSource();
         messageSource.setBasenames("classpath:Messages", "classpath:ValidationMessages");
-        messageSource.setDefaultEncoding("UTF-8");
+        messageSource.setDefaultEncoding(CONFIG_ENCODING);
         messageSource.setCacheSeconds(0);
         return messageSource;
     }

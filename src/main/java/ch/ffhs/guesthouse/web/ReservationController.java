@@ -36,6 +36,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
+import static ch.ffhs.guesthouse.util.ConstUtil.*;
+
 /**
  * Reservation controller for the app
  *
@@ -57,31 +59,34 @@ public class ReservationController {
      * @param model
      * @return ModelAndView
      */
-    @GetMapping("/readReservation/{reservationId}")
+    @GetMapping(ROUTE_READ_RESERVATION_ID)
     public ModelAndView readReservation(@PathVariable Long reservationId, Model model) {
         var reservation = reservationService.readById(reservationId);
         if (!reservation.isPresent()) {
-            return new ModelAndView("redirect:/");
+            return new ModelAndView(REDIRECT_INDEX);
         }
-        model.addAttribute("reservation", reservation.get());
-        return new ModelAndView("readReservation");
+        model.addAttribute(ATTRIBUTE_RESERVATION, reservation.get());
+        return new ModelAndView(VIEW_READ_RESERVATION);
     }
 
     /**
      * Handle Post insertReservation POST request
+     * Convection based, model is not used but needed for return binding.
+     * Parameter order matters, crazy..
+     * if BindingResult is not second, error handling on the view is not working
      *
      * @param reservation
      * @param bindingResult
      * @param model
      * @return ModelAndView
      */
-    @PostMapping("/insertReservation")
+    @PostMapping(ROUTE_INSERT_RESERVATION)
     public ModelAndView insertReservation(@Valid Reservation reservation, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            return new ModelAndView("addReservation");
+            return new ModelAndView(VIEW_ADD_RESERVATION);
         }
         reservationService.insert(reservation);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView(REDIRECT_INDEX);
     }
 
     /**
@@ -91,31 +96,34 @@ public class ReservationController {
      * @param model
      * @return ModelAndView
      */
-    @GetMapping("/updateReservation/{reservationId}")
+    @GetMapping(ROUTE_UPDATE_RESERVATION_ID)
     public ModelAndView updateReservation(@PathVariable Long reservationId, Model model) {
         var reservation = reservationService.readById(reservationId);
         if (!reservation.isPresent()) {
-            return new ModelAndView("redirect:/");
+            return new ModelAndView(REDIRECT_INDEX);
         }
-        model.addAttribute("reservation", reservation.get());
-        return new ModelAndView("updateReservation");
+        model.addAttribute(ATTRIBUTE_RESERVATION, reservation.get());
+        return new ModelAndView(VIEW_UPDATE_RESERVATION);
     }
 
     /**
      * Handle updateReservation POST request
+     * Convection based, model is not used but needed for return binding.
+     * Parameter order matters, crazy..
+     * if BindingResult is not second, error handling on the view is not working
      *
      * @param reservation
      * @param bindingResult
      * @param model
      * @return ModelAndView
      */
-    @PostMapping("/updateReservation")
+    @PostMapping(ROUTE_UPDATE_RESERVATION)
     public ModelAndView updateReservation(@Valid Reservation reservation, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            return new ModelAndView("updateReservation");
+            return new ModelAndView(VIEW_UPDATE_RESERVATION);
         }
         reservationService.update(reservation);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView(REDIRECT_INDEX);
     }
 
     /**
@@ -125,26 +133,25 @@ public class ReservationController {
      * @param model
      * @return ModelAndView
      */
-    @GetMapping("/removeReservation/{reservationId}")
+    @GetMapping(ROUTE_REMOVE_RESERVATION_ID)
     public ModelAndView removeReservation(@PathVariable Long reservationId, Model model) {
         var reservation = reservationService.readById(reservationId);
         if (!reservation.isPresent()) {
-            return new ModelAndView("redirect:/");
+            return new ModelAndView(REDIRECT_INDEX);
         }
-        model.addAttribute("reservation", reservation.get());
-        return new ModelAndView("removeReservation");
+        model.addAttribute(ATTRIBUTE_RESERVATION, reservation.get());
+        return new ModelAndView(VIEW_REMOVE_RESERVATION);
     }
 
     /**
      * Handle removeReservation POST request
      *
      * @param reservation
-     * @param model
      * @return ModelAndView
      */
-    @PostMapping("/removeReservation")
-    public ModelAndView removeReservation(Reservation reservation, Model model) {
+    @PostMapping(ROUTE_REMOVE_RESERVATION)
+    public ModelAndView removeReservation(Reservation reservation) {
         reservationService.deleteById(reservation.getId());
-        return new ModelAndView("redirect:/");
+        return new ModelAndView(REDIRECT_INDEX);
     }
 }

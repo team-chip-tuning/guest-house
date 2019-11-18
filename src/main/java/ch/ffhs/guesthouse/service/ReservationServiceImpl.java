@@ -55,7 +55,9 @@ public class ReservationServiceImpl implements ReservationService {
      */
     @Override
     public List<Reservation> findAll() {
-        return reservationRepository.findAllByIsDeletedFalse();
+        var result = reservationRepository.findAllByIsDeletedFalse();
+        log.info("FIND ALL RESERVATION, COUNT IS {}", result.size());
+        return result;
     }
 
     /**
@@ -67,6 +69,7 @@ public class ReservationServiceImpl implements ReservationService {
      */
     @Override
     public Optional<Reservation> findByRfId(String rfId) {
+        log.info("FIND BY RFID: {}", rfId);
         var result = reservationRepository.findByRfIdAndIsDeletedTrue(rfId);
         if (result.isPresent()) {
             result.get().setDeleted(false);
@@ -84,6 +87,7 @@ public class ReservationServiceImpl implements ReservationService {
      */
     @Override
     public Optional<Reservation> readById(Long id) {
+        log.info("READ BY ID RECORD: {}", id.toString());
         return reservationRepository.findById(id);
     }
 
@@ -95,6 +99,7 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public void insert(Reservation reservation) {
         reservationRepository.save(reservation);
+        log.info("INSERT RECORD: {}", reservation.toString());
     }
 
     /**
@@ -108,8 +113,8 @@ public class ReservationServiceImpl implements ReservationService {
         if (reservation.isPresent()) {
             var result = reservation.get();
             result.setDeleted(true);
-            log.info("DELETED RECORD: {}", result.toString());
             reservationRepository.save(result);
+            log.info("DELETED RECORD: {}", result.toString());
         }
     }
 
@@ -120,7 +125,7 @@ public class ReservationServiceImpl implements ReservationService {
      */
     @Override
     public void update(Reservation reservation) {
-        log.info("UPDATE RESERVATION: {}", reservation.toString());
         reservationRepository.save(reservation);
+        log.info("UPDATE RESERVATION: {}", reservation.toString());
     }
 }
