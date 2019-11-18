@@ -48,6 +48,18 @@
            th:errors="*{name}"
            th:if="${#fields.hasErrors('name')}"/>
 
+    <label>information</label>
+    <textarea aria-describedby="informationHelp"
+              class="form-control"
+              maxlength="512"
+              placeholder="Enter Information"
+              th:disabled="${disabled}"
+              th:field="*{information}"
+              type="text"/>
+    <small class="form-text text-danger" for="informationHelp"
+           th:errors="*{information}"
+           th:if="${#fields.hasErrors('information')}"/>
+
     <label>medicalCare</label>
     <textarea aria-describedby="medicalCareHelp"
               class="form-control"

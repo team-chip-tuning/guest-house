@@ -52,6 +52,9 @@ public class Reservation {
     private String name;
 
     @Column(length = 512)
+    private String information;
+
+    @Column(length = 512)
     private String medicalCare;
 
     @Column(length = 512)

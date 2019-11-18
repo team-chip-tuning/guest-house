@@ -37,7 +37,7 @@
 <section>
     <h6 class="border-bottom border-gray pb-2 mb-0">Gäste</h6>
     <div class="media text-muted pt-3" th:each="reservation :${reservationList}">
-
+        <!-- icon selector start -->
         <div th:if="not
         ${reservation.name.contains('weib')} and not
         ${reservation.name.contains(', w')} and not
@@ -57,13 +57,15 @@
         ${reservation.name.contains(', mae')}">
             <img alt="" class="mr-3" height="32" src="/img/dog-boy.svg" width="32">
         </div>
-
+        <!-- icon selector end -->
         <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-            <strong class="d-block text-gray-dark" th:text="${reservation.name}"/> <br>&nbsp;<br>
-            Abholdatum: <span th:text="${reservation.pickUpDate}"/> RFID: <span th:text="${reservation.rfId}"/><br>
-            Medizinisch Informationen: <span th:text="${reservation.medicalCare}"/><br>
-            Wichtige Kommandos: <span th:text="${reservation.commands}"/><br>
-            Besitzer Informationen: <span th:text="${reservation.ownerInformation}"/><br>&nbsp;<br>
+            <strong>Name und Geschlecht: </strong><span th:text="${reservation.name}"/><br>
+            <strong>Abholdatum: </strong><span th:text="${reservation.pickUpDate}"/>
+            <strong>RFID: </strong><span th:text="${reservation.rfId}"/><br>
+            <strong>Informationen: </strong><span th:text="${reservation.information}"/><br>
+            <strong>Besitzer Informationen: </strong><span th:text="${reservation.ownerInformation}"/><br>
+            <strong>Medizinisch Informationen: </strong><span th:text="${reservation.medicalCare}"/><br>
+            <strong>Kommandos: </strong><span th:text="${reservation.commands}"/><br>&nbsp;<br>
             <a th:href="@{/readReservation/}+${reservation.id}">Detail Ansicht</a>
         </p>
     </div>
