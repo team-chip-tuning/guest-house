@@ -1,14 +1,14 @@
 # Projekt: Hotel Verwaltung
 
 ##Projekt Team
-PA 5: Team Chip-Tuning
+Team Chip-Tuning
 
 ### Entwicklung IDE und Plugin
-Das Projekt wurde mit IntelliJ IDEA ULTIMATE 2019.2 von JetBrain erstellt und entwickelt.
+Das Projekt wurde mit IntelliJ IDEA ULTIMATE 2019.2 von JetBrains erstellt und entwickelt.
 Es wurden die Standard Einstellungen verwendet für die Java Entwicklung.
 
 Lombok wird verwendet im Projekt und darum muss das Plugin ```Lombok``` installiert sein.
-Das Plugin findet man über die Suche in der Plugin Dialog im IntelliJ.
+Das Plugin findet man über die Suche im Plugin Dialog im IntelliJ.
 Oder man kann es herunterladen und installieren unter: ``https://plugins.jetbrains.com/plugin/6317-lombok/``
 Es wurde die Verion ``0.27`` verwendet in der Entwicklung.
 
@@ -16,16 +16,16 @@ Es wurde die Verion ``0.27`` verwendet in der Entwicklung.
 Das Projket verwendet **OpenJdk 13**, diese Version ist im Maven File ``pom.xml`` gesetzt.
 Zu finden ist OpenJdk 13 unter: ``https://jdk.java.net/13/``.
 
-Um das Projekt erfolgreich mit Maven oder mit IntelliJ zu builden.
-Muss die OpenJdk 13 für Maven zugänglich sein.
+Um das Projekt erfolgreich mit Maven oder mit IntelliJ zu erstellen.
+Muss für Maven OpenJdk 13 zugänglich sein.
 
 Man kann am einfachsen das Projekt über Intellij über das Menu ``File - New - Project from existing Source`` öffnen.
-Bitte das ``pom.xml`` File zum erstellen des Projekts verwendet.
+Bitte dann das ``pom.xml`` File zum erstellen des Projekts verwenden.
 
 ### Docker
-Um das **Prod** Profile zu verwenden muss man Docker und Docker-Compose installiert sein auf dem Hostsystem.
-Die Console/Terminal im Projketverzeichnis öffnet.
-Dann das Kommando ``docker-compose up`` ausführen. 
+Um das **Prod** Profile zu verwenden, muss Docker und Docker-Compose installiert sein.
+Die Console/Terminal im Projektverzeichnis öffnen.
+Dann das Kommando ``docker-compose up`` ausführen, um die Infrastruktur Postgres DB zu starten. 
 
 Je nach Version muss man entsprechend Informationen anpassen im ``docker-compose`` File.
 Die Informationen müssen übereinstimmen im ``application-prod.yaml``, dort weden diverse ODBC Informationen zur Datenbank gesetzt.
