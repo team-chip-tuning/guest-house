@@ -31,10 +31,10 @@
 <body>
 <nav class="nav nav-underline" th:fragment="breadcrumb">
     <a class="nav-link active" href="/" th:text="#{global.dashboard}"/>
-    <span class="nav-link disabled">Neuen Gast erstellen</span>
+    <span class="nav-link disabled" th:text="#{global.newGuest}"/>
 </nav>
 <section>
-    <h3 th:text="${'Add Reservation'}"/><small class="text-info" th:if="${param.logout}" th:text="*{message}"/>
+    <h3 th:text="#{global.addReservation}"/><small class="text-info" th:if="${param.logout}" th:text="*{message}"/>
     <form method="post" th:action="@{/insertReservation}" th:object="${reservation}">
         <div th:replace="fragments/reservationForm::formField(disabled='false')"/>
         <div th:replace="fragments/backButton"></div>

@@ -35,7 +35,7 @@
     <a class="nav-link disabled" href="/" th:text="#{global.dashboard}"/>
 </nav>
 <section>
-    <h6 class="border-bottom border-gray pb-2 mb-0">Gäste</h6>
+    <h6 class="border-bottom border-gray pb-2 mb-0" th:text="#{global.guests}"/>
     <div class="media text-muted pt-3" th:each="reservation :${reservationList}">
         <!-- icon selector start -->
         <div th:if="not
@@ -44,33 +44,33 @@
         ${reservation.name.contains('männ')} and not
         ${reservation.name.contains(', m')} and not
         ${reservation.name.contains(', mae')}">
-            <img alt="" class="mr-3" height="32" src="/img/dog.svg" width="32">
+            <img alt="dog" class="mr-3" height="32" src="/img/dog.svg" width="32">
         </div>
 
         <div th:if="${reservation.name.contains('weibl')} or
         ${reservation.name.contains(', w')}">
-            <img alt="" class="mr-3" height="32" src="/img/dog-girl.svg" width="32">
+            <img alt="dog" class="mr-3" height="32" src="/img/dog-girl.svg" width="32">
         </div>
 
         <div th:if="${reservation.name.contains('männ')} or
         ${reservation.name.contains(', m')} or
         ${reservation.name.contains(', mae')}">
-            <img alt="" class="mr-3" height="32" src="/img/dog-boy.svg" width="32">
+            <img alt="dog" class="mr-3" height="32" src="/img/dog-boy.svg" width="32">
         </div>
         <!-- icon selector end -->
         <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-            <strong>Name und Geschlecht: </strong><span th:text="${reservation.name}"/><br>
-            <strong>Abholdatum: </strong><span th:text="${reservation.pickUpDate}"/>
-            <strong>RFID: </strong><span th:text="${reservation.rfId}"/><br>
+            <strong th:text="#{global.nameSexAge} + #{global.doubleDot}"/><span th:text="${reservation.name}"/><br>
+            <strong th:text="#{global.pickUpDate} + #{global.doubleDot}"/><span th:text="${reservation.pickUpDate}"/>
+            <strong th:text="#{global.rfid} + #{global.doubleDot}"/><span th:text="${reservation.rfId}"/><br>
             <strong>Informationen: </strong><span th:text="${reservation.information}"/><br>
             <strong>Besitzer Informationen: </strong><span th:text="${reservation.ownerInformation}"/><br>
             <strong>Medizinisch Informationen: </strong><span th:text="${reservation.medicalCare}"/><br>
             <strong>Kommandos: </strong><span th:text="${reservation.commands}"/><br>&nbsp;<br>
-            <a th:href="@{/readReservation/}+${reservation.id}">Detail Ansicht</a>
+            <a th:href="@{/readReservation/}+${reservation.id}" th:text="#{global.detailView}"/>
         </p>
     </div>
     <small class="d-block text-right mt-3">
-        <a href="/">neu Laden</a>
+        <a href="/" th:text="#{global.reloadPage}"/>
     </small>
 </section>
 </body>

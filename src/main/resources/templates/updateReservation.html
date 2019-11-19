@@ -31,7 +31,7 @@
 <nav class="nav nav-underline" th:fragment="breadcrumb">
     <a class="nav-link active" href="/" th:text="#{global.dashboard}"/>
     <a class="nav-link active" th:href="@{/readReservation/}+${reservation.id}" th:text="${'Detail Ansicht'}"/>
-    <span class="nav-link disabled">Editieren der Gast Informationen</span>
+    <span class="nav-link disabled" th:text="#{global.editGuestInformation}"/>
 </nav>
 <section>
     <h3 th:text="${'Update Reservation'}"/><small class="text-info" th:if="${param.logout}" th:text="*{message}"/>

@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-    <entry key="global.app-name">Hotel Administration</entry>
-    <entry key="gloabl.newGuest">Create new guest</entry>
-    <entry key="global.dashboard">Dashboard</entry>
-    <entry key="global.database">Database</entry>
-    <entry key="global.say-hi">Hello</entry>
-    <entry key="global.signIn">Sign In</entry>
-    <entry key="global.detailReservation">Detail Reservation</entry>
-    <entry key="global.signOut">Sign Out</entry>
-    <entry key="global.signUp">Sign Up</entry>
-    <entry key="global.who-are-you">Who are you?</entry>
+    <entry key="global.doubleDot">:</entry>
+    <entry key="global.nameSexAge">Name, Geschlecht, Alter</entry>
+    <entry key="global.app-name">Hotel Verwaltung</entry>
+    <entry key="global.pickUpDate">Abholdatum</entry>
+    <entry key="global.editGuestInformation">Editieren der Gast Informationen</entry>
+    <entry key="global.addReservation">Hinzufügen Reservation</entry>
+    <entry key="global.reloadPage">neu laden</entry>
+    <entry key="global.detailView">Detail Ansicht</entry>
+    <entry key="global.guests">Gäste</entry>
+    <entry key="global.newGuest">Neuen Gast erstellen</entry>
+    <entry key="global.registration">Gast Registrieren</entry>
+    <entry key="global.rfid">RFID</entry>
+    <entry key="global.abort">Abbrechen</entry>
+    <entry key="global.back">Zurück</entry>
+    <entry key="global.save">Speichern</entry>
+    <entry key="global.reset">Information zurücksetzen</entry>
+    <entry key="global.dashboard">Überischt</entry>
+    <entry key="global.database">Datenbank</entry>
+    <entry key="global.say-hi">Hallo</entry>
+    <entry key="global.signIn">Anmelden</entry>
+    <entry key="global.detailReservation">Übersicht Reservation</entry>
 </properties>
