@@ -23,7 +23,7 @@
   -->
 
 <div class="form-group" th:fragment="formField(disabled)" xmlns:th="http://www.thymeleaf.org">
-    <label>RFID</label>
+    <label th:text="#{global.rfid}">RFID</label>
     <input aria-describedby="rfidHelp"
            class="form-control"
            placeholder="Enter RFID"
@@ -34,7 +34,7 @@
     <small class="form-text text-danger" for="rfidHelp"
            th:errors="*{rfId}"
            th:if="${#fields.hasErrors('rfId')}"/>
-    <label>Name</label>
+    <label th:text="#{global.nameSexAge}"/>
     <input aria-describedby="nameHelp"
            class="form-control"
            maxlength="128"
@@ -48,7 +48,7 @@
            th:errors="*{name}"
            th:if="${#fields.hasErrors('name')}"/>
 
-    <label>information</label>
+    <label th:text="#{global.information}"/>
     <textarea aria-describedby="informationHelp"
               class="form-control"
               maxlength="512"
@@ -60,7 +60,7 @@
            th:errors="*{information}"
            th:if="${#fields.hasErrors('information')}"/>
 
-    <label>medicalCare</label>
+    <label th:text="#{global.medicalInformation}"/>
     <textarea aria-describedby="medicalCareHelp"
               class="form-control"
               maxlength="512"
@@ -72,7 +72,7 @@
            th:errors="*{medicalCare}"
            th:if="${#fields.hasErrors('medicalCare')}"/>
 
-    <label>specialFeeding</label>
+    <label th:text="#{global.specialFeeding}"/>
     <textarea aria-describedby="specialFeedingHelp"
               class="form-control"
               maxlength="512"
@@ -84,7 +84,7 @@
            th:errors="*{specialFeeding}"
            th:if="${#fields.hasErrors('specialFeeding')}"/>
 
-    <label>commands</label>
+    <label th:text="#{global.commands}"/>
     <textarea aria-describedby="commandsHelp"
               class="form-control"
               maxlength="512"
@@ -96,7 +96,7 @@
            th:errors="*{commands}"
            th:if="${#fields.hasErrors('commands')}"/>
 
-    <label>ownerInformation</label>
+    <label th:text="#{global.ownerInformation}"/>
     <textarea aria-describedby="ownerInformationHelp"
               class="form-control"
               maxlength="512"
@@ -109,7 +109,7 @@
            th:errors="*{ownerInformation}"
            th:if="${#fields.hasErrors('ownerInformation')}"/>
 
-    <label>pickUpDate</label>
+    <label th:text="#{global.pickUpDate}"/>
     <input aria-describedby="pickUpDateHelp"
            class="form-control"
            placeholder="Enter pickUpDate"
@@ -121,7 +121,7 @@
            th:errors="*{pickUpDate}"
            th:if="${#fields.hasErrors('pickUpDate')}"/>
 
-    <label>pickUpInformation</label>
+    <label th:text="#{global.pickUpInformation}"/>
     <textarea aria-describedby="pickUpInformationHelp"
               class="form-control"
               maxlength="512"

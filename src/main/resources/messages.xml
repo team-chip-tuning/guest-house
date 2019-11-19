@@ -2,14 +2,28 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
     <entry key="global.doubleDot">:</entry>
+    <entry key="global.information">Informationen</entry>
     <entry key="global.nameSexAge">Name, Geschlecht, Alter</entry>
+    <entry key="global.specialFeeding">Fütterung</entry>
+    <entry key="global.ownerInformation">Besitzerdaten</entry>
+    <entry key="global.pickUpInformation">Informationen zur Abholung</entry>
     <entry key="global.app-name">Hotel Verwaltung</entry>
     <entry key="global.pickUpDate">Abholdatum</entry>
     <entry key="global.editGuestInformation">Editieren der Gast Informationen</entry>
     <entry key="global.addReservation">Hinzufügen Reservation</entry>
     <entry key="global.reloadPage">neu laden</entry>
     <entry key="global.detailView">Detail Ansicht</entry>
+    <entry key="global.removeGuest">Löschen des Gastes</entry>
+    <entry key="global.deleteFirstPart">Möchtest du den Gast:</entry>
+    <entry key="global.deleteSecondPart">wirklich löschen?</entry>
+    <entry key="global.updateReservation">Reservierung aktualisieren</entry>
+    <entry key="global.delete">Löschen</entry>
+    <entry key="global.edit">Bearbeiten</entry>
+    <entry key="global.deleteGuest">Gast Löschen</entry>
     <entry key="global.guests">Gäste</entry>
+    <entry key="global.guestInformation">Besitzer Informationen</entry>
+    <entry key="global.medicalInformation">Medizinisch Informationen</entry>
+    <entry key="global.commands">Kommandos</entry>
     <entry key="global.newGuest">Neuen Gast erstellen</entry>
     <entry key="global.registration">Gast Registrieren</entry>
     <entry key="global.rfid">RFID</entry>

@@ -62,11 +62,14 @@
             <strong th:text="#{global.nameSexAge} + #{global.doubleDot}"/><span th:text="${reservation.name}"/><br>
             <strong th:text="#{global.pickUpDate} + #{global.doubleDot}"/><span th:text="${reservation.pickUpDate}"/>
             <strong th:text="#{global.rfid} + #{global.doubleDot}"/><span th:text="${reservation.rfId}"/><br>
-            <strong>Informationen: </strong><span th:text="${reservation.information}"/><br>
-            <strong>Besitzer Informationen: </strong><span th:text="${reservation.ownerInformation}"/><br>
-            <strong>Medizinisch Informationen: </strong><span th:text="${reservation.medicalCare}"/><br>
-            <strong>Kommandos: </strong><span th:text="${reservation.commands}"/><br>&nbsp;<br>
-            <a th:href="@{/readReservation/}+${reservation.id}" th:text="#{global.detailView}"/>
+            <strong th:text="#{global.information} + #{global.doubleDot}"/><span
+                th:text="${reservation.information}"/><br>
+            <strong th:text="#{global.guestInformation} + #{global.doubleDot}"/><span
+                th:text="${reservation.ownerInformation}"/><br>
+            <strong th:text="#{global.medicalInformation} + #{global.doubleDot}"/><span
+                th:text="${reservation.medicalCare}"/><br>
+            <strong th:text="#{global.commands} + #{global.doubleDot}"/><span th:text="${reservation.commands}"/><br>&nbsp;<br>
+            <a th:href="@{/readReservation/} + ${reservation.id}" th:text="#{global.detailView}"/>
         </p>
     </div>
     <small class="d-block text-right mt-3">

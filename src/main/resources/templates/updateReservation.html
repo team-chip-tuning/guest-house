@@ -34,7 +34,7 @@
     <span class="nav-link disabled" th:text="#{global.editGuestInformation}"/>
 </nav>
 <section>
-    <h3 th:text="${'Update Reservation'}"/><small class="text-info" th:if="${param.logout}" th:text="*{message}"/>
+    <h3 th:text="#{global.updateReservation}"/><small class="text-info" th:if="${param.logout}" th:text="*{message}"/>
     <form method="post" th:action="@{/updateReservation}" th:object="${reservation}">
         <div th:replace="fragments/reservationForm::formField(disabled='false')"/>
         <div th:replace="fragments/abortButton"></div>

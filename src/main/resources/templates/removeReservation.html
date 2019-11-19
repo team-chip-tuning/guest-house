@@ -30,23 +30,23 @@
 <body>
 <nav class="nav nav-underline" th:fragment="breadcrumb">
     <a class="nav-link active" href="/" th:text="#{global.dashboard}"/>
-    <a class="nav-link active" th:href="@{/readReservation/}+${reservation.id}" th:text="${'Detail Ansicht'}"/>
-    <span class="nav-link disabled">Gast Löschen</span>
+    <a class="nav-link active" th:href="@{/readReservation/}+${reservation.id}" th:text="#{global.detailView}"/>
+    <span class="nav-link disabled" th:text="#{global.deleteGuest}"/>
 </nav>
 <section>
-    <h3 th:text="${'Löschen des Gastes'}"/><small class="text-info" th:if="${param.logout}" th:text="*{message}"/>
+    <h3 th:text="#{global.removeGuest}"/><small class="text-info" th:if="${param.logout}" th:text="*{message}"/>
 
     <form method="post" th:action="@{/removeReservation}" th:object="${reservation}">
         <div>
-            <p class="text-danger">Möchtest du den Gast:
+            <p class="text-danger"><span th:text="#{global.deleteFirstPart}"/>
                 <stron class="font-weight-bold" th:text="${reservation.name}"/>
-                wirklich löschen?
+                <span th:text="#{global.deleteSecondPart}">
             </p>
         </div>
         <input th:field="*{id}" type="hidden">
         <div>
             <a th:replace="fragments/backButton"/>
-            <input class="btn btn-danger" type="submit" value="Löschen"/>
+            <input class="btn btn-danger" th:value="#{global.delete}" type="submit"/>
         </div>
     </form>
 </section>

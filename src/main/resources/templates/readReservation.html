@@ -29,16 +29,16 @@
 <body>
 <nav class="nav nav-underline" th:fragment="breadcrumb">
     <a class="nav-link active" href="/" th:text="#{global.dashboard}"/>
-    <span class="nav-link disabled">Detail Ansicht</span>
+    <span class="nav-link disabled" th:text="#{global.detailView}"/>
 </nav>
 <section>
-    <h3 th:text="${'Detail Reservation'}"/><small class="text-info" th:if="${param.logout}" th:text="*{message}"/>
+    <h3 th:text="#{global.detailView}"/><small class="text-info" th:if="${param.logout}" th:text="*{message}"/>
     <form method="post" th:action="@{/insertReservation}" th:object="${reservation}">
         <div th:replace="fragments/reservationForm::formField(disabled='true')"/>
         <div>
             <a th:replace="fragments/backButton"/>
-            <a class="btn btn-outline-dark" th:href="@{/updateReservation/}+*{id}">Bearbeiten</a>
-            <a class="btn btn-danger" th:href="@{/removeReservation/}+*{id}">Löschen</a>
+            <a class="btn btn-outline-dark" th:href="@{/updateReservation/}+*{id}" th:text="#{global.edit}"/>
+            <a class="btn btn-danger" th:href="@{/removeReservation/}+*{id}" th:text="#{global.delete}"/>
         </div>
     </form>
 </section>
