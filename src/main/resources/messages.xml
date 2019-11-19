@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-    <entry key="global.doubleDot">:&#160;</entry>
+    <entry key="global.doubleDot">:</entry>
     <entry key="global.information">Informationen</entry>
     <entry key="global.nameSexAge">Name, Geschlecht, Alter</entry>
     <entry key="global.specialFeeding">Fütterung</entry>
