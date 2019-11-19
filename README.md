@@ -1,6 +1,6 @@
 # Projekt: Hotel Verwaltung
 
-##Projekt Team
+### Projekt Team
 Team Chip-Tuning
 
 ### Entwicklung IDE und Plugin
