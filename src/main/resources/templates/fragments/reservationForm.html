@@ -23,10 +23,9 @@
   -->
 
 <div class="form-group" th:fragment="formField(disabled)" xmlns:th="http://www.thymeleaf.org">
-    <label th:text="#{global.rfid}">RFID</label>
+    <label th:text="#{global.rfid}"/>
     <input aria-describedby="rfidHelp"
            class="form-control"
-           placeholder="Enter RFID"
            required
            th:disabled="${disabled}"
            th:field="*{rfId}"
@@ -39,7 +38,6 @@
            class="form-control"
            maxlength="128"
            minlength="2"
-           placeholder="Enter Name"
            required
            th:disabled="${disabled}"
            th:field="*{name}"
@@ -52,7 +50,6 @@
     <textarea aria-describedby="informationHelp"
               class="form-control"
               maxlength="512"
-              placeholder="Enter Information"
               th:disabled="${disabled}"
               th:field="*{information}"
               type="text"/>
@@ -64,7 +61,6 @@
     <textarea aria-describedby="medicalCareHelp"
               class="form-control"
               maxlength="512"
-              placeholder="Enter medicalCare"
               th:disabled="${disabled}"
               th:field="*{medicalCare}"
               type="text"/>
@@ -76,7 +72,6 @@
     <textarea aria-describedby="specialFeedingHelp"
               class="form-control"
               maxlength="512"
-              placeholder="Enter specialFeeding"
               th:disabled="${disabled}"
               th:field="*{specialFeeding}"
               type="text"/>
@@ -88,7 +83,6 @@
     <textarea aria-describedby="commandsHelp"
               class="form-control"
               maxlength="512"
-              placeholder="Enter commands"
               th:disabled="${disabled}"
               th:field="*{commands}"
               type="text"/>
@@ -100,7 +94,6 @@
     <textarea aria-describedby="ownerInformationHelp"
               class="form-control"
               maxlength="512"
-              placeholder="Enter ownerInformation"
               required
               th:disabled="${disabled}"
               th:field="*{ownerInformation}"
@@ -112,7 +105,6 @@
     <label th:text="#{global.pickUpDate}"/>
     <input aria-describedby="pickUpDateHelp"
            class="form-control"
-           placeholder="Enter pickUpDate"
            required
            th:disabled="${disabled}"
            th:field="*{pickUpDate}"
@@ -125,7 +117,6 @@
     <textarea aria-describedby="pickUpInformationHelp"
               class="form-control"
               maxlength="512"
-              placeholder="Enter pickUpInformation"
               th:disabled="${disabled}"
               th:field="*{pickUpInformation}"
               type="text"/>

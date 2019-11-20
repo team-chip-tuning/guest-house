@@ -68,7 +68,6 @@ public class Reservation {
     private String ownerInformation;
 
     @NotBlank
-    @NotBlank
     private String pickUpDate;
 
     @Column(length = 512)
