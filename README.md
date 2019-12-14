@@ -4,13 +4,13 @@
 Team Chip-Tuning
 
 ### Entwicklung IDE und Plugin
-Das Projekt wurde mit IntelliJ IDEA ULTIMATE 2019.2 von JetBrains erstellt und entwickelt.
+Das Projekt wurde mit IntelliJ IDEA ULTIMATE 2019.3 von JetBrains erstellt und entwickelt.
 Es wurden die Standard Einstellungen verwendet für die Java Entwicklung.
 
 Lombok wird verwendet im Projekt und darum muss das Plugin ```Lombok``` installiert sein.
 Das Plugin findet man über die Suche im Plugin Dialog im IntelliJ.
 Oder man kann es herunterladen und installieren unter: ``https://plugins.jetbrains.com/plugin/6317-lombok/``
-Es wurde die Verion ``0.27`` verwendet in der Entwicklung.
+Es wurde die Verion ``0.28`` verwendet in der Entwicklung.
 
 ### Java
 Das Projket verwendet **OpenJdk 13**, diese Version ist im Maven File ``pom.xml`` gesetzt.
@@ -19,8 +19,18 @@ Zu finden ist OpenJdk 13 unter: ``https://jdk.java.net/13/``.
 Um das Projekt erfolgreich mit Maven oder mit IntelliJ zu erstellen.
 Muss für Maven OpenJdk 13 zugänglich sein.
 
+### Projekt Import
 Man kann am einfachsen das Projekt über Intellij über das Menu ``File - New - Project from existing Source`` öffnen.
-Bitte dann das ``pom.xml`` File zum erstellen des Projekts verwenden.
+Bitte dann das ``pom.xml`` File wählen zum erstellen des Intellij Projekts, die default Einstellungen sollten reichen.
+Im Dialog für die Wahl der SDK, bitte die korrekte OpenJdk 13 verwenden.
+
+Danach im Maven Tab ``clean`` und ``install`` durchführen. Dabei sollten die Unit Tests ebenfalls erfolgreich durchgeführt werden.
+Im IntelliJ Build Dropdown Menu müssten zwei Einträge erscheinen ``DEV GuestHouse`` und ``PROD GuestHouse``, da diese IntelliJ Build Profile im Projekt abgelegt wurden.
+> Wichtig!
+Bitte prüfen Sie gesetzte JDK Version in diesen Build Profilen, dort müssen Sie Ihre OpenJDK 13 verwenden. Je nach Ihrem Intellij Setup ist die default JDK anders.
+
+Im Build Profile ``DEV GuestHouse`` ist unter dem Eintrag ``Active profiles`` ``dev`` eingestellt.
+Dieses Build Profile wird mit einer h2 Datenbank betrieben, diese sollte Lokal lauffähig sein.
 
 ### Docker
 Um das **Prod** Profile zu verwenden, muss Docker und Docker-Compose installiert sein.
