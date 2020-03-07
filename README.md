@@ -40,6 +40,8 @@ Dann das Kommando ``docker-compose up`` ausführen, um die Infrastruktur Postgre
 Je nach Version muss man entsprechend Informationen anpassen im ``docker-compose`` File.
 Die Informationen müssen übereinstimmen im ``application-prod.yaml``, dort weden diverse ODBC Informationen zur Datenbank gesetzt.
 
+![Java CI with Maven](https://github.com/team-chip-tuning/guest-house/workflows/Java%20CI%20with%20Maven/badge.svg)
+
 ### MIT
 MIT License
 
