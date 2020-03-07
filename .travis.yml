@@ -1,0 +1,10 @@
+language: java
+jdk: openjdk13
+
+script:
+  - ./mvnw clean install -B
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
