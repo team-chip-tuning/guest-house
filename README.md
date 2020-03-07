@@ -1,4 +1,5 @@
 ![Java CI with Maven](https://github.com/team-chip-tuning/guest-house/workflows/Java%20CI%20with%20Maven/badge.svg)
+[![Build Status](https://travis-ci.org/team-chip-tuning/guest-house.svg?branch=master)](https://travis-ci.org/team-chip-tuning/guest-house)
 
 # Projekt: Hotel Verwaltung
 
