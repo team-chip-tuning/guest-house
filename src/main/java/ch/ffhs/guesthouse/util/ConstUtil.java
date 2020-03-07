@@ -30,10 +30,6 @@ package ch.ffhs.guesthouse.util;
  * @author dani
  */
 public class ConstUtil {
-
-    private ConstUtil() {
-    }
-
     // APP CONFIG
     public static final String CONFIG_INDEX = "index";
     public static final String CONFIG_ROUTE = "/";
