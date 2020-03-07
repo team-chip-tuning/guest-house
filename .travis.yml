@@ -1,9 +1,15 @@
 language: java
 jdk: openjdk13
 
-branches:
-  only:
-  - master
+addons:
+  sonarcloud:
+    organization: "team-chip-tuning"
+    token:
+      secure: "RWkyKSc4m+u782cleGKDy6bvyPvwDzDZDwCW48Tz3y+P7MVHnvvDg9VZ+aUd4NNul8ODAjTy9Hqpq6ny6h5adB6mhhN3lz3Gi6xbnJD+ZoHAjSnoZbpGbGM+in+7Kx/Fhp3oNdyzE3nDrFbNIsiA3IVsDeqVj6o0LgjTrNt+1voJSdPmB18s4jfUtPQ7subzpJcv/PYRXSN6iXXXG9njut9fc3JF4LhB4LXiDCKvOBZcn03gHMI0o4HOC++lxFIdYmtUge30lOhieREWMuryuLsRtM2DlMaMkhxwh20c9ROvfkRrE1MqLYUZQZfeZDPCZJqbWTuVbxLmkkLLn0mGVDkeLfd85ADq3u9jFGMTQvQuHo58eQ8GtZwV8bVwbmsz6676j70F+lpNtNqYEy5TwS6VttTbb6nfKVa4AnBvXbCbvWqzQrl/o5E6rV+VkRa4xVI0REaXO7IOt7UzG6RL2N0s6A1us+9gaScIa1cMXmvcWwtMJ2tO0TBVn8Tow3L4AMUEojKHF/nUgD35EjsxLfA16dqG5u4I6DhbhYxwP+dmQITU/wQJv9W5XtSuP+cp1maia3ZJ2lzAKH7E37QsLaikBaiD146+IbTqRJ4UdkDP4cvQ8StaLP1Cgshzou53Y4VNkPt9XJUosGQIKuzIDBxQ35eOwAAAz5B0qwjD8lo="
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
 
 cache:
   directories:
