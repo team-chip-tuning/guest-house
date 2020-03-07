@@ -1,5 +1,6 @@
 ![Java CI with Maven](https://github.com/team-chip-tuning/guest-house/workflows/Java%20CI%20with%20Maven/badge.svg)
 [![Build Status](https://travis-ci.org/team-chip-tuning/guest-house.svg?branch=master)](https://travis-ci.org/team-chip-tuning/guest-house)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=team-chip-tuning_guest-house&metric=alert_status)](https://sonarcloud.io/dashboard?id=team-chip-tuning_guest-house)
 
 # Projekt: Hotel Verwaltung
 
