@@ -1,18 +1,16 @@
 language: java
-dist: trusty
 jdk: openjdk13
-
 addons:
   sonarcloud:
-    organization: "team-chip-tuning"
+    organization: team-chip-tuning
     token:
-      secure: ${RWkyKSc4m+u782cleGKDy6bvyPvwDzDZDwCW48Tz3y+P7MVHnvvDg9VZ+aUd4NNul8ODAjTy9Hqpq6ny6h5adB6mhhN3lz3Gi6xbnJD+ZoHAjSnoZbpGbGM+in+7Kx/Fhp3oNdyzE3nDrFbNIsiA3IVsDeqVj6o0LgjTrNt+1voJSdPmB18s4jfUtPQ7subzpJcv/PYRXSN6iXXXG9njut9fc3JF4LhB4LXiDCKvOBZcn03gHMI0o4HOC++lxFIdYmtUge30lOhieREWMuryuLsRtM2DlMaMkhxwh20c9ROvfkRrE1MqLYUZQZfeZDPCZJqbWTuVbxLmkkLLn0mGVDkeLfd85ADq3u9jFGMTQvQuHo58eQ8GtZwV8bVwbmsz6676j70F+lpNtNqYEy5TwS6VttTbb6nfKVa4AnBvXbCbvWqzQrl/o5E6rV+VkRa4xVI0REaXO7IOt7UzG6RL2N0s6A1us+9gaScIa1cMXmvcWwtMJ2tO0TBVn8Tow3L4AMUEojKHF/nUgD35EjsxLfA16dqG5u4I6DhbhYxwP+dmQITU/wQJv9W5XtSuP+cp1maia3ZJ2lzAKH7E37QsLaikBaiD146+IbTqRJ4UdkDP4cvQ8StaLP1Cgshzou53Y4VNkPt9XJUosGQIKuzIDBxQ35eOwAAAz5B0qwjD8lo=}
-
+      secure: c8YE9BTb6ycVDUhk1d2ak7IVdf8ENoeuIVYzTuDPNCex1mNL1r2V3pVPp6oxDMeEVtH7bVdiviEdrTLLJB3yZrTYn6fBUxat7M1CQZk7BK2pZSgMLWLPIOd3MnerpGOZWd+L+6jfSsntUig73ujClmdtf0PQh7GE1xxRt88ahbqeiqSeSZYj3HRq7pHZWdMNVbGVZhnVY28DC3NLl5xHVlDPGd1qwuBPs2O7W1uItq8Xsp4FmGEYxAcVKQomArNg3jm+v+LBhfoSlkEAOT7dnun+IfJYgRjq9SYtpHQNeifKK8ppldmkMtUJb3arjIOIjEX4PSSBkHI/u3uB0H2ty1WVawdpMVHdbne+VLQgcJJmz0ptcV0AtevnqsYyoNYZG5NumZZqaNp1CC8KvUoz3qIC8hm1TBLDVehRuy0SSK2i0nExnuwe5zGtNM5tMVauJtWpNNJ0UkGclSxh53XBds551TKD7HIuk9ui4KbtfmA5bGAOuCw88fQiZwayHOWlra0y2EJ7IwVV+TJOFG2P+PhBhm8HDPjlglLM+EUISHrJDXnr1YHx9RgRycbMqUZ4lBvFS96hf0b7gRMvZ3qZsUghcvYGSFkwKAiE8s5fa30fjv1i7XQLkbGYTpQEZT6N6P+YWbsabsjjohsPL/V5nhHmzmuctpX2PsG+eeB+OOg=
 script:
-  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
-
+  - mvn clean verify sonar:sonar
 cache:
   directories:
-    - '$HOME/.m2/repository'
-    - '$HOME/.sonar/cache'
+    - "$HOME/.m2/repository"
+    - "$HOME/.sonar/cache"
+env:
+  global:
+    secure: c8YE9BTb6ycVDUhk1d2ak7IVdf8ENoeuIVYzTuDPNCex1mNL1r2V3pVPp6oxDMeEVtH7bVdiviEdrTLLJB3yZrTYn6fBUxat7M1CQZk7BK2pZSgMLWLPIOd3MnerpGOZWd+L+6jfSsntUig73ujClmdtf0PQh7GE1xxRt88ahbqeiqSeSZYj3HRq7pHZWdMNVbGVZhnVY28DC3NLl5xHVlDPGd1qwuBPs2O7W1uItq8Xsp4FmGEYxAcVKQomArNg3jm+v+LBhfoSlkEAOT7dnun+IfJYgRjq9SYtpHQNeifKK8ppldmkMtUJb3arjIOIjEX4PSSBkHI/u3uB0H2ty1WVawdpMVHdbne+VLQgcJJmz0ptcV0AtevnqsYyoNYZG5NumZZqaNp1CC8KvUoz3qIC8hm1TBLDVehRuy0SSK2i0nExnuwe5zGtNM5tMVauJtWpNNJ0UkGclSxh53XBds551TKD7HIuk9ui4KbtfmA5bGAOuCw88fQiZwayHOWlra0y2EJ7IwVV+TJOFG2P+PhBhm8HDPjlglLM+EUISHrJDXnr1YHx9RgRycbMqUZ4lBvFS96hf0b7gRMvZ3qZsUghcvYGSFkwKAiE8s5fa30fjv1i7XQLkbGYTpQEZT6N6P+YWbsabsjjohsPL/V5nhHmzmuctpX2PsG+eeB+OOg=
