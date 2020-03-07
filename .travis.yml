@@ -5,8 +5,6 @@ addons:
     organization: team-chip-tuning
     token:
       secure: PUJuQ6tiIal+W07AtrD/TAx/71uvITGxhP6L44Ec0nm44I8NdQ5IsnO6lgfKxDCPTGr6M2m/yaf5BpctwI30S1YuKoDVBrw20jvyvzll1eQ9E2f6j4Nim8xlCoVgp/qa66vymM/RAukTCyPhv+9qKdnabP+1wUOTAaIwEDi+INDsFDu2JKrQG3d4LfPC2urxrfudBAlJBkcgr4tvBQ9BCf5LX18cIYfN4V+vbHFdrYNouVJC+LRM+mKK1xHDRmExule6YbBO7Z5xNiMN8LT/KzMw6A4g7jrnyscYeTwWDNvCoVY92rl8m3XgIVrwDEwqK26web8qVPvB/ar2nF+XfmmqOctQaf6+yzvUwMAqfCCEQ2AkzR3XbuKcme5gQMLsS+710cjN0BenDKucOIp3NrHOif8oO3f7iy+u0LbHe35PFA2gd778SLMnQy+XA/pMXv2EZ54RwtnkW44m56ovRBeHylbh5bfLh/C6zZpcMoeR6CC2MKXA21H3iXifY7IRpj40w9ZiLK8IWOoDE/4OEx3osVwSmf0bmVBfTPU8NoBU6ZGK2gwgSEFjevnvHQUPncozF0RxWAwbGTnkRM5a1lS2Z+2mwL22WB/Oji/zsXtUkhZeAKrj3gYCYo64RQxv/KJX8YP0h2MsRHgB0t9kRpusCaxIBrp6XcdnsNd+qjc=
-script:
-  - mvn clean verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=team-chip-tuning
 cache:
   directories:
     - "$HOME/.m2/repository"
